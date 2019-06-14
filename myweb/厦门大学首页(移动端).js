@@ -69,8 +69,9 @@ obj.removeEventListener("touchend",touchfuc,false);
 
 
 
-var src=["轮播/1.jpg","轮播/2.jpg","轮播/3.jpg","轮播/4.jpg" ,"轮播/5.jpg"],index=1,index_light=0,indexnow=1;
-var startx,imgx,slidedis;
+var hrefbase="http://github.com/huting2019/myweb/raw/master/myweb/",
+    src=[hrefbase+"轮播/1.jpg",hrefbase+"轮播/2.jpg",hrefbase+"轮播/3.jpg",hrefbase+"轮播/4.jpg" ,hrefbase+"轮播/5.jpg"],index=1,index_light=0,indexnow=1,
+    startx,imgx,slidedis;
 //滑动距离left+动画中断时的播放距离margin-left=实际距离；
 function touchfuc(event){
 
