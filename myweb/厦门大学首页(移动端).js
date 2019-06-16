@@ -1,18 +1,12 @@
-﻿var hrefbase="https://github.com/huting2019/myweb/raw/master/myweb/",
+var hrefbase="https://github.com/huting2019/myweb/raw/master/myweb/",
     src=[hrefbase+"轮播/1.jpg",hrefbase+"轮播/2.jpg",hrefbase+"轮播/3.jpg",hrefbase+"轮播/4.jpg" ,hrefbase+"轮播/5.jpg"],index=0,index_light=0,indexnow=1,
-    startx,imgx,slidedis,imgwidth=0,imgheight=0;
+    startx,imgx,slidedis,imgwidth=0,imgheight=0,imgloadflag=0;
 var imgset={img0:new Image(),img1:new Image(),img2:new Image(),img3:new Image(),img4:new Image()};
 
 window.onload = function(){
- var obj=document.getElementById("photos");
-
+ 
 imginit();
 
-circleaddEventListener();
-imgaddEventListener();
-paraellipsis();               //段落设置50个字符限制
-obj.style.animation="imgplay 3s ease-out infinite";
-obj.addEventListener("webkitAnimationIteration",imgplayorderset);    //迭代结束一次，点亮下一张图片，重新设置图片位置
 }
 
 function imginit(){
@@ -28,14 +22,24 @@ j=i+1;
 c=document.getElementById("canvas"+j);
 c.width=imgwidth;
 c.height=imgheight;
+imgset["img"+i].onload=function(){    
+    imgloadflag=imgloadflag+1;  
+    if(imgloadflag==src.length)
+             webpagemain();
+}
+}
 
 }
 
-imgset["img1"].onload=function(){ 
-imgset["img2"].onload=function(){  
-imgplayorderset();
-}
-}
+function webpagemain(){
+
+     var obj=document.getElementById("photos");
+     imgplayorderset();
+     circleaddEventListener();
+     imgaddEventListener();
+     paraellipsis();               //段落设置50个字符限制
+     obj.style.animation="imgplay 3s ease-out infinite";
+     obj.addEventListener("webkitAnimationIteration",imgplayorderset);    //迭代结束一次，点亮下一张图片，重新设置图片位置
 }
 
 
