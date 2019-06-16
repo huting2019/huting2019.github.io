@@ -31,8 +31,13 @@ c.height=imgheight;
 
 }
 
-imgset["img4"].onload=function(){
+imgset["img1"].onload=function(){
+    console.log("1");
+imgset["img2"].onload=function(){
+     console.log("2");
 imgplayorderset();
+}
+ console.log("3");
 }
 
 }
