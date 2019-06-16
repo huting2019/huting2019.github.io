@@ -31,7 +31,7 @@ c.height=imgheight;
 
 }
 
-imgset.onload=function(){
+imgset["img4"].onload=function(){
 imgplayorderset();
 }
 
